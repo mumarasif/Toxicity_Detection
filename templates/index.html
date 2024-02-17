@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Selection</title>
+</head>
+<body>
+    <h1>Select Input Type</h1>
+    <form action="/process" method="post" enctype="multipart/form-data">
+        <label for="input_type">Choose Input Type:</label>
+        <select name="input_type" id="input_type">
+            <option value="text">Text</option>
+            <option value="audio">Audio</option>
+            <option value="video">Video</option>
+        </select>
+        <br><br>
+        <div id="text_input" style="display:none;">
+            <label for="text_file">Upload Text File (.txt):</label>
+            <input type="file" name="text_file" id="text_file">
+        </div>
+        <div id="audio_input" style="display:none;">
+            <label for="audio">Upload Audio File (.mp3):</label>
+            <input type="file" name="audio" id="audio" accept="audio/mp3">
+        </div>
+        <div id="video_input" style="display:none;">
+            <label for="video">Upload Video File (.mp4):</label>
+            <input type="file" name="video" id="video" accept="video/mp4">
+        </div>
+        <br>
+        <button type="submit">Process</button>
+    </form>
+
+    <script>
+        document.getElementById('input_type').addEventListener('change', function() {
+            var input_type = this.value;
+            var text_input = document.getElementById('text_input');
+            var audio_input = document.getElementById('audio_input');
+            var video_input = document.getElementById('video_input');
+
+            if (input_type === 'text') {
+                text_input.style.display = 'block';
+                audio_input.style.display = 'none';
+                video_input.style.display = 'none';
+            } else if (input_type === 'audio') {
+                text_input.style.display = 'none';
+                audio_input.style.display = 'block';
+                video_input.style.display = 'none';
+            } else if (input_type === 'video') {
+                text_input.style.display = 'none';
+                audio_input.style.display = 'none';
+                video_input.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
