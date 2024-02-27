@@ -41,7 +41,7 @@ def extract_text_from_audio(audio_file_path):
 
 
 def generate_text_from_prompt(prompt):
-    genai.configure(api_key='AIzaSyAass-uhtkfBxUWwOY4yvrhYaqGrfrEN8I')
+    genai.configure(api_key='Your-Api-Key')
     model = genai.GenerativeModel('gemini-pro')
 
     instruction1 = '''Analyze the given conversation data and classify it as either "toxic" or "non-toxic".'''
